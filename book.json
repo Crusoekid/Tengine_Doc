@@ -1,0 +1,30 @@
+{
+    "output": null,
+
+    "generator": "site",
+
+    "title": "Tengine-Lite",
+    "description": null,
+    "isbn": "a",
+
+    "extension": null,
+
+    "plugins": [
+        "expandable-chapters"    ],
+
+    "variables": {},
+
+    "links": {
+        "sidebar": {
+            "Custom link name": "https://customlink.com"
+        },
+
+        "sharing": {
+            "google": null,
+            "facebook": null,
+            "twitter": null,
+            "weibo": null,
+            "all": null
+        }
+    }
+}
