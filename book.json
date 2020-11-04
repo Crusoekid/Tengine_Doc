@@ -15,7 +15,6 @@
         "back-to-top-button",
         "code",
         "expandable-chapters-small",
-        "mapull-default",
         "-theme-fexa",
         "github",
         "splitter"
@@ -31,6 +30,11 @@
             "url": "https://github.com/OAID/Tengine"
         }
     },
+    
+    "styles": {
+        "website": "styles/customize.css"
+    },
+
     "pdf": {
         "pageNumbers": true,
         "fontFamily": "Arial",
