@@ -9,15 +9,18 @@
 
 ``` bash
 sudo apt-get install cmake make g++ git
+sudo apt install libprotobuf-dev protobuf-compiler
 ```
 
 * Fedora28 环境安装命令：       
 
 ``` bash
 sudo dnf install cmake make g++ git
+sudo dnf install protobuf-devel
+sudo dnf install boost-devel glog-devel
 ```
 
 ## **下载源码**
 ```bash
-git clone https://github.com/OAID/Tengine.git
+git clone https://github.com/OAID/Tengine-Convert-Tools.git
 ```
