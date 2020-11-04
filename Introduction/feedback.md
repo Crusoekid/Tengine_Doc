@@ -10,7 +10,7 @@
 
 ## **加入群聊**
 QQ群（集中地）：    
-![QQ_Group](../Images/QQ_group.png)
+![QQ_Group](../Images/QQ_Group.png)
 
 微信群：    
-![QQ_Group](../Images/Wechat.Group.png)
+![QQ_Group](../Images/Wechat_Group.png)
