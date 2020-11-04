@@ -13,4 +13,4 @@ QQ群（集中地）：
 ![QQ_Group](../Images/QQ_group.png)
 
 微信群：    
-![QQ_Group](../Images/Wechat.Group.png)
+![Wechat_Group](../Images/Wechat_Group.png)
