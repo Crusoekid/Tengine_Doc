@@ -47,7 +47,7 @@ for (int w = 0; w < image_width; w ++)
  * @return 0: Success; -1: Fail.
  * @note  The buffer is still managed by caller.
  */
-set_tensor_buffer(input_tensor, send_im, image_width * image_height * image_channel * sizeof(float));
+int set_tensor_buffer(tensor_t tensor, void* buffer, int buffer_size);
 ```
 
 ## **完整代码**
