@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>推理会话 · Tengine-Lite</title>
+        <title>编译CMakeLists参数 · Tengine-Lite</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="outputdata.html" />
+    <link rel="next" href="androidreasoning.html" />
     
     
-    <link rel="prev" href="inputdata.html" />
+    <link rel="prev" href="compile.html" />
     
 
     </head>
@@ -186,7 +186,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.1.1.1" data-path="compilecmakelists.html">
+        <li class="chapter active" data-level="2.1.1.1" data-path="compilecmakelists.html">
             
                 <a href="compilecmakelists.html">
             
@@ -283,7 +283,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.1.2.4" data-path="runsession.html">
+        <li class="chapter " data-level="2.1.2.4" data-path="runsession.html">
             
                 <a href="runsession.html">
             
@@ -433,7 +433,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >推理会话</a>
+        <a href=".." >编译CMakeLists参数</a>
     </h1>
 </div>
 
@@ -448,19 +448,91 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x63A8;&#x7406;&#x4F1A;&#x8BDD;"><strong>&#x63A8;&#x7406;&#x4F1A;&#x8BDD;</strong></h1>
-<h2 id="&#x8FD0;&#x884C;"><strong>&#x8FD0;&#x884C;</strong></h2>
-<pre><code class="lang-c++"><span class="hljs-comment">/*!
- * @brief Execute graph.
- *
- * @param [in] graph: The graph handle.
- * @param [in] block: Blocking or nonlocking.
- * @return 0: Success, -1: Fail.
- * @note  If block is 0, need to call wait_graph to get result or set GRAPH_DONE event hook.
- *
- */</span>
-run_graph(graph, <span class="hljs-number">1</span>);
-</code></pre>
+                                <h1 id="&#x7F16;&#x8BD1;cmakelists&#x53C2;&#x6570;"><strong>&#x7F16;&#x8BD1;CMakeLists&#x53C2;&#x6570;</strong></h1>
+<h2 id="cmakelists-&#x9009;&#x9879;"><strong>CMakeLists &#x9009;&#x9879;</strong></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">&#x53C2;&#x6570;</th>
+<th style="text-align:center">&#x9ED8;&#x8BA4;&#x503C;</th>
+<th style="text-align:center">&#x505A;&#x7528;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">TENGINE_OPENMP</td>
+<td style="text-align:center">ON</td>
+<td style="text-align:center">&#x652F;&#x6301;openmp</td>
+</tr>
+<tr>
+<td style="text-align:center">TENGINE_BUILD_BENCHMARK</td>
+<td style="text-align:center">ON</td>
+<td style="text-align:center">&#x7F16;&#x8BD1;benchmark</td>
+</tr>
+<tr>
+<td style="text-align:center">TENGINE_BUILD_EXAMPLES</td>
+<td style="text-align:center">ON</td>
+<td style="text-align:center">&#x7F16;&#x8BD1;examples</td>
+</tr>
+<tr>
+<td style="text-align:center">TENGINE_BUILD_TESTS</td>
+<td style="text-align:center">OFF</td>
+<td style="text-align:center">&#x7F16;&#x8BD1;tests</td>
+</tr>
+<tr>
+<td style="text-align:center">TENGINE_BUILD_CPP_API</td>
+<td style="text-align:center">ON</td>
+<td style="text-align:center">&#x7F16;&#x8BD1;C++ API</td>
+</tr>
+<tr>
+<td style="text-align:center">TENGINE_DEBUG_DATA</td>
+<td style="text-align:center">OFF</td>
+<td style="text-align:center">&#x6253;&#x5370;&#x6BCF;&#x4E2A;&#x5C42;&#x6570;&#x636E;</td>
+</tr>
+<tr>
+<td style="text-align:center">TENGINE_DEBUG_TIME</td>
+<td style="text-align:center">OFF</td>
+<td style="text-align:center">&#x6253;&#x5370;&#x6BCF;&#x5C42;&#x65F6;&#x95F4;&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td style="text-align:center">TENGINE_DEBUG_MEM_STAT</td>
+<td style="text-align:center">OFF</td>
+<td style="text-align:center">&#x6253;&#x5370;&#x5185;&#x5B58;&#x72B6;&#x6001;</td>
+</tr>
+<tr>
+<td style="text-align:center">TENGINE_ARCH_X86_AVX</td>
+<td style="text-align:center">ON</td>
+<td style="text-align:center">&#x7F16;&#x8BD1;avx2 for x86</td>
+</tr>
+<tr>
+<td style="text-align:center">TENGINE_ARCH_ARM_82</td>
+<td style="text-align:center">OFF</td>
+<td style="text-align:center">&#x7F16;&#x8BD1;armv8.2 for arm</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x63D2;&#x4EF6;&#x9009;&#x9879;"><strong>&#x63D2;&#x4EF6;&#x9009;&#x9879;</strong></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">&#x53C2;&#x6570;</th>
+<th style="text-align:center">&#x9ED8;&#x8BA4;&#x503C;</th>
+<th style="text-align:center">&#x505A;&#x7528;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">TENGINE_ENABLE_ACL</td>
+<td style="text-align:center">OFF</td>
+<td style="text-align:center">&#x4F7F;&#x7528;Arm Compute Library&#xFF08;ACL&#xFF09;&#x652F;&#x6301;&#x8FDB;&#x884C;&#x6784;&#x5EFA;</td>
+</tr>
+<tr>
+<td style="text-align:center">TENGINE_ENABLE_VULKAN</td>
+<td style="text-align:center">OFF</td>
+<td style="text-align:center">&#x4F7F;&#x7528;Vulkan GPU&#x8BA1;&#x7B97;&#x652F;&#x6301;&#x8FDB;&#x884C;&#x6784;&#x5EFA;</td>
+</tr>
+</tbody>
+</table>
 
                                 
                                 </section>
@@ -488,12 +560,12 @@ run_graph(graph, <span class="hljs-number">1</span>);
 
             
                 
-                <a href="inputdata.html" class="navigation navigation-prev " aria-label="Previous page: 输入数据">
+                <a href="compile.html" class="navigation navigation-prev " aria-label="Previous page: 编译">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="outputdata.html" class="navigation navigation-next " aria-label="Next page: 得到输出">
+                <a href="androidreasoning.html" class="navigation navigation-next " aria-label="Next page: 编译Android推理库">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -504,7 +576,7 @@ run_graph(graph, <span class="hljs-number">1</span>);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"推理会话","level":"2.1.2.4","depth":3,"next":{"title":"得到输出","level":"2.1.2.5","depth":3,"path":"ReasoningEngine/outputdata.md","ref":"ReasoningEngine/outputdata.md","articles":[]},"previous":{"title":"输入数据","level":"2.1.2.3","depth":3,"path":"ReasoningEngine/inputdata.md","ref":"ReasoningEngine/inputdata.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","-sharing","-fontsettings","-livereload","back-to-top-button","code","expandable-chapters-small","-theme-fexa","github","splitter"],"styles":{"website":"styles/customize.css"},"pluginsConfig":{"expandable-chapters-small":{},"code":{"copyButtons":true},"github":{"url":"https://github.com/OAID/Tengine"},"search-pro":{},"back-to-top-button":{},"splitter":{},"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"openailab","pdf":{"pageNumbers":true,"fontSize":10,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":42,"left":42,"top":36,"bottom":36}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tengine-Lite","language":"zh-hans","gitbook":"*","description":"Tengine-Lite使用文档","extension":null},"file":{"path":"ReasoningEngine/runsession.md","mtime":"2020-11-04T08:43:49.065Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-06T06:43:42.475Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"编译CMakeLists参数","level":"2.1.1.1","depth":3,"next":{"title":"编译Android推理库","level":"2.1.1.2","depth":3,"path":"ReasoningEngine/androidreasoning.md","ref":"ReasoningEngine/androidreasoning.md","articles":[]},"previous":{"title":"编译","level":"2.1.1","depth":2,"path":"ReasoningEngine/compile.md","ref":"ReasoningEngine/compile.md","articles":[{"title":"编译CMakeLists参数","level":"2.1.1.1","depth":3,"path":"ReasoningEngine/compilecmakelists.md","ref":"ReasoningEngine/compilecmakelists.md","articles":[]},{"title":"编译Android推理库","level":"2.1.1.2","depth":3,"path":"ReasoningEngine/androidreasoning.md","ref":"ReasoningEngine/androidreasoning.md","articles":[]},{"title":"编译Linux推理库","level":"2.1.1.3","depth":3,"path":"ReasoningEngine/linuxreasoning.md","ref":"ReasoningEngine/linuxreasoning.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","-sharing","-fontsettings","-livereload","back-to-top-button","code","expandable-chapters-small","-theme-fexa","github","splitter"],"styles":{"website":"styles/customize.css"},"pluginsConfig":{"expandable-chapters-small":{},"code":{"copyButtons":true},"github":{"url":"https://github.com/OAID/Tengine"},"search-pro":{},"back-to-top-button":{},"splitter":{},"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"openailab","pdf":{"pageNumbers":true,"fontSize":10,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":42,"left":42,"top":36,"bottom":36}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tengine-Lite","language":"zh-hans","gitbook":"*","description":"Tengine-Lite使用文档","extension":null},"file":{"path":"ReasoningEngine/compilecmakelists.md","mtime":"2020-11-06T05:53:26.632Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-06T06:43:42.475Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
