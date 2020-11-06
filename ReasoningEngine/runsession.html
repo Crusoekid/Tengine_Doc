@@ -450,7 +450,7 @@
                                 
                                 <h1 id="&#x63A8;&#x7406;&#x4F1A;&#x8BDD;"><strong>&#x63A8;&#x7406;&#x4F1A;&#x8BDD;</strong></h1>
 <h2 id="&#x8FD0;&#x884C;"><strong>&#x8FD0;&#x884C;</strong></h2>
-<pre><code class="lang-c++"><span class="hljs-comment">/*!
+<pre><code class="lang-C++"><span class="hljs-comment">/*!
  * @brief Execute graph.
  *
  * @param [in] graph: The graph handle.
@@ -459,7 +459,10 @@
  * @note  If block is 0, need to call wait_graph to get result or set GRAPH_DONE event hook.
  *
  */</span>
-run_graph(graph, <span class="hljs-number">1</span>);
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">run_graph</span><span class="hljs-params">(graph_t graph, <span class="hljs-keyword">int</span> block)</span></span>;
+</code></pre>
+<p>Example:</p>
+<pre><code class="lang-c++">run_graph(graph, <span class="hljs-number">1</span>);
 </code></pre>
 
                                 
@@ -504,7 +507,7 @@ run_graph(graph, <span class="hljs-number">1</span>);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"推理会话","level":"2.1.2.4","depth":3,"next":{"title":"得到输出","level":"2.1.2.5","depth":3,"path":"ReasoningEngine/outputdata.md","ref":"ReasoningEngine/outputdata.md","articles":[]},"previous":{"title":"输入数据","level":"2.1.2.3","depth":3,"path":"ReasoningEngine/inputdata.md","ref":"ReasoningEngine/inputdata.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","-sharing","-fontsettings","-livereload","back-to-top-button","code","expandable-chapters-small","-theme-fexa","github","splitter"],"styles":{"website":"styles/customize.css"},"pluginsConfig":{"expandable-chapters-small":{},"code":{"copyButtons":true},"github":{"url":"https://github.com/OAID/Tengine"},"search-pro":{},"back-to-top-button":{},"splitter":{},"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"openailab","pdf":{"pageNumbers":true,"fontSize":10,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":42,"left":42,"top":36,"bottom":36}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tengine-Lite","language":"zh-hans","gitbook":"*","description":"Tengine-Lite使用文档","extension":null},"file":{"path":"ReasoningEngine/runsession.md","mtime":"2020-11-04T08:43:49.065Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-06T06:43:42.475Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"推理会话","level":"2.1.2.4","depth":3,"next":{"title":"得到输出","level":"2.1.2.5","depth":3,"path":"ReasoningEngine/outputdata.md","ref":"ReasoningEngine/outputdata.md","articles":[]},"previous":{"title":"输入数据","level":"2.1.2.3","depth":3,"path":"ReasoningEngine/inputdata.md","ref":"ReasoningEngine/inputdata.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","-sharing","-fontsettings","-livereload","back-to-top-button","code","expandable-chapters-small","-theme-fexa","github","splitter"],"styles":{"website":"styles/customize.css"},"pluginsConfig":{"expandable-chapters-small":{},"code":{"copyButtons":true},"github":{"url":"https://github.com/OAID/Tengine"},"search-pro":{},"back-to-top-button":{},"splitter":{},"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"openailab","pdf":{"pageNumbers":true,"fontSize":10,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":42,"left":42,"top":36,"bottom":36}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tengine-Lite","language":"zh-hans","gitbook":"*","description":"Tengine-Lite使用文档","extension":null},"file":{"path":"ReasoningEngine/runsession.md","mtime":"2020-11-06T07:14:50.264Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-06T07:15:36.560Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

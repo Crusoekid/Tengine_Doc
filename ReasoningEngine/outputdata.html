@@ -459,7 +459,20 @@
  * @return The tensor handle or NULL on error.
  *
  */</span>
-<span class="hljs-keyword">tensor_t</span> mTensor = get_graph_tensor(graph, <span class="hljs-string">&quot;Tensor_output_name&quot;</span>);
+<span class="hljs-keyword">tensor_t</span> get_graph_tensor(<span class="hljs-keyword">graph_t</span> graph, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* tensor_name);
+
+<span class="hljs-comment">/*!
+ * @brief Get a tensor handle of a graph output node.
+ *
+ * @param [in] graph: The graph handle.
+ * @param [in] output_node_idx: The output node index.
+ * @param [in] tensor_idx: The output tensor index of the output node.
+ *
+ * @return The tensor handle or NULL on error.
+ *
+ */</span>
+<span class="hljs-keyword">tensor_t</span> get_graph_output_tensor(<span class="hljs-keyword">graph_t</span> graph, <span class="hljs-keyword">int</span> output_node_idx, <span class="hljs-keyword">int</span> tensor_idx);
+
 <span class="hljs-comment">/*!
  * @brief Get the buffer of the tensor.
  *    A tensor may deny to expose its internal buffer, so that get_tensor_buffer()
@@ -468,6 +481,14 @@
  * @param [in] tensor: The tensor handle.
  * @return The buffer address. if no buffer allocated return NULL.
  */</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span>* <span class="hljs-title">get_tensor_buffer</span><span class="hljs-params">(tensor_t tensor)</span></span>;
+</code></pre>
+<p>Example:</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">tensor_t</span> mTensor = get_graph_tensor(graph, <span class="hljs-string">&quot;Tensor_output_name&quot;</span>);
+<span class="hljs-keyword">float</span> *outputData = (<span class="hljs-keyword">float</span>*)get_tensor_buffer(mTensor);
+</code></pre>
+<p>&#x6216;&#x8005;&#xFF1A;</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">tensor_t</span> mTensor = get_graph_output_tensor(graph, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
 <span class="hljs-keyword">float</span> *outputData = (<span class="hljs-keyword">float</span>*)get_tensor_buffer(mTensor);
 </code></pre>
 
@@ -513,7 +534,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"得到输出","level":"2.1.2.5","depth":3,"next":{"title":"释放内存","level":"2.1.2.6","depth":3,"path":"ReasoningEngine/release.md","ref":"ReasoningEngine/release.md","articles":[]},"previous":{"title":"推理会话","level":"2.1.2.4","depth":3,"path":"ReasoningEngine/runsession.md","ref":"ReasoningEngine/runsession.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","-sharing","-fontsettings","-livereload","back-to-top-button","code","expandable-chapters-small","-theme-fexa","github","splitter"],"styles":{"website":"styles/customize.css"},"pluginsConfig":{"expandable-chapters-small":{},"code":{"copyButtons":true},"github":{"url":"https://github.com/OAID/Tengine"},"search-pro":{},"back-to-top-button":{},"splitter":{},"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"openailab","pdf":{"pageNumbers":true,"fontSize":10,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":42,"left":42,"top":36,"bottom":36}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tengine-Lite","language":"zh-hans","gitbook":"*","description":"Tengine-Lite使用文档","extension":null},"file":{"path":"ReasoningEngine/outputdata.md","mtime":"2020-11-04T08:43:49.062Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-06T06:43:42.475Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"得到输出","level":"2.1.2.5","depth":3,"next":{"title":"释放内存","level":"2.1.2.6","depth":3,"path":"ReasoningEngine/release.md","ref":"ReasoningEngine/release.md","articles":[]},"previous":{"title":"推理会话","level":"2.1.2.4","depth":3,"path":"ReasoningEngine/runsession.md","ref":"ReasoningEngine/runsession.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","-sharing","-fontsettings","-livereload","back-to-top-button","code","expandable-chapters-small","-theme-fexa","github","splitter"],"styles":{"website":"styles/customize.css"},"pluginsConfig":{"expandable-chapters-small":{},"code":{"copyButtons":true},"github":{"url":"https://github.com/OAID/Tengine"},"search-pro":{},"back-to-top-button":{},"splitter":{},"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"openailab","pdf":{"pageNumbers":true,"fontSize":10,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":42,"left":42,"top":36,"bottom":36}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tengine-Lite","language":"zh-hans","gitbook":"*","description":"Tengine-Lite使用文档","extension":null},"file":{"path":"ReasoningEngine/outputdata.md","mtime":"2020-11-06T07:10:16.758Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-06T07:15:36.560Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

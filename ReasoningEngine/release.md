@@ -10,25 +10,36 @@
  *
  * @return None.
  */
-release_graph_tensor(input_tensor);
+void release_graph_tensor(tensor_t tensor);
+
 /*!
  * @brief Release the resource for graph execution.
  * @param [in] graph: graph handle.
  *
  * @return 0: Success, -1: Fail.
  */
-postrun_graph(graph);
+int postrun_graph(graph_t graph);
+
 /*!
  * @brief Destory the runtime graph and release allocated resource.
  *
  * @param [in] graph: The graph handle.
  * @return 0: Success, -1: Fail.
  */
-destroy_graph(graph);
+int destroy_graph(graph_t graph);
+
 /*!
  * @brief Release the tengine, only can be called once.
  *
  * @return none.
  */
+void release_tengine(void);
+```
+
+Example:
+```c++
+release_graph_tensor(input_tensor);
+postrun_graph(graph);
+destroy_graph(graph);
 release_tengine();
 ```

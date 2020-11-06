@@ -463,7 +463,10 @@
  *
  * @return  The graph handler or NULL if failed.
  */</span>
-<span class="hljs-keyword">graph_t</span> graph = create_graph(<span class="hljs-literal">nullptr</span>, <span class="hljs-string">&quot;tengine&quot;</span>, model_path.c_str());
+<span class="hljs-keyword">graph_t</span> create_graph(<span class="hljs-keyword">context_t</span> context, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* model_format, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* file_name, ...);
+</code></pre>
+<p>Example:</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">graph_t</span> graph = create_graph(<span class="hljs-literal">nullptr</span>, <span class="hljs-string">&quot;tengine&quot;</span>, model_path.c_str());
 </code></pre>
 <h2 id="&#x914D;&#x7F6E;&#x9009;&#x9879;&#xFF08;&#x591A;&#x7EBF;&#x7A0B;&#x624D;&#x9700;&#x8981;&#x914D;&#x7F6E;&#xFF09;"><strong>&#x914D;&#x7F6E;&#x9009;&#x9879;&#xFF08;&#x591A;&#x7EBF;&#x7A0B;&#x624D;&#x9700;&#x8981;&#x914D;&#x7F6E;&#xFF09;</strong></h2>
 <pre><code class="lang-c++"><span class="hljs-comment">/*!
@@ -481,43 +484,45 @@
 opt.num_thread = num_thread;
 opt.cluster = TENGINE_CLUSTER_ALL;
 opt.precision = TENGINE_MODE_FP32;
-<span class="hljs-keyword">if</span> (prerun_graph_multithread(graph, opt) != <span class="hljs-number">0</span>){
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Prerun multithread graph failed.\n&quot;</span> ;
-}
 </code></pre>
 <h2 id="&#x521B;&#x5EFA;&#x8F93;&#x5165;tensor"><strong>&#x521B;&#x5EFA;&#x8F93;&#x5165;Tensor</strong></h2>
 <p>&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x521B;&#x5EFA;&#xFF1A;</p>
 <ul>
-<li><p>&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x8F93;&#x5165;&#x7684;&#x65F6;&#x5019;&#xFF1A;</p>
-<pre><code class="lang-c++"><span class="hljs-comment">/*!
-* @brief Get tensor handle of one graph input tensor.
-*
-* @param [in] graph: The graph handle.
-* @param [in] input_node_idx: The input node index, starting from zero.
-* @param [in] tensor_idx: The output tensor index of the input node, starting from zero.
-*
-* @return The tensor handle or NULL on error.
-*/</span>
-<span class="hljs-keyword">tensor_t</span> input_tensor = get_graph_input_tensor(graph, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
-</code></pre>
-</li>
-<li><p>&#x6709;&#x591A;&#x4E2A;&#x8F93;&#x5165;&#x7684;&#x65F6;&#x5019;&#xFF1A;</p>
-<pre><code class="lang-c++"><span class="hljs-comment">/*!
-* @brief Get a tensor handle by tensor name.
-*
-* @param [in] graph: The graph handle.
-* @param [in] tensor_name: Tensor name.
-*
-* @return The tensor handle or NULL on error.
-*
-*/</span>
-<span class="hljs-keyword">tensor_t</span> input_tensor = get_graph_tensor(graph, <span class="hljs-string">&quot;input&quot;</span>);
-</code></pre>
-</li>
+<li>&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x8F93;&#x5165;&#x7684;&#x65F6;&#x5019;&#xFF1A; </li>
 </ul>
+<pre><code class="lang-c++"><span class="hljs-comment">/*!
+ * @brief Get tensor handle of one graph input tensor.
+ *
+ * @param [in] graph: The graph handle.
+ * @param [in] input_node_idx: The input node index, starting from zero.
+ * @param [in] tensor_idx: The output tensor index of the input node, starting from zero.
+ *
+ * @return The tensor handle or NULL on error.
+ */</span>
+<span class="hljs-keyword">tensor_t</span> get_graph_input_tensor(<span class="hljs-keyword">graph_t</span> graph, <span class="hljs-keyword">int</span> input_node_idx, <span class="hljs-keyword">int</span> tensor_idx);
+</code></pre>
+<p>Example:</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">tensor_t</span> input_tensor = get_graph_input_tensor(graph, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+</code></pre>
+<ul>
+<li>&#x6709;&#x591A;&#x4E2A;&#x8F93;&#x5165;&#x7684;&#x65F6;&#x5019;,&#x7528;ID&#x83B7;&#x53D6;&#xFF1A;</li>
+</ul>
+<pre><code class="lang-c++"><span class="hljs-comment">/*!
+ * @brief Get a tensor handle by tensor name.
+ *
+ * @param [in] graph: The graph handle.
+ * @param [in] tensor_name: Tensor name.
+ *
+ * @return The tensor handle or NULL on error.
+ *
+ */</span>
+<span class="hljs-keyword">tensor_t</span> get_graph_tensor(<span class="hljs-keyword">graph_t</span> graph, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* tensor_name);
+</code></pre>
+<p>Example:</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">tensor_t</span> input_tensor = get_graph_tensor(graph, <span class="hljs-string">&quot;input&quot;</span>);
+</code></pre>
 <h2 id="&#x8BBE;&#x7F6E;tensor&#x5F62;&#x72B6;"><strong>&#x8BBE;&#x7F6E;Tensor&#x5F62;&#x72B6;</strong></h2>
-<pre><code class="lang-c++"><span class="hljs-keyword">int</span> dims[] = {<span class="hljs-number">1</span>, model_input_channel, model_input_height, model_input_widht}; <span class="hljs-comment">// NCHW</span>
-<span class="hljs-comment">/*!
+<pre><code class="lang-c++"><span class="hljs-comment">/*!
  * @brief Set the shape of tensor.
  *
  * @param [in] tensor: The tensor handle.
@@ -526,43 +531,53 @@ opt.precision = TENGINE_MODE_FP32;
  * @return 0: Success; -1: Fail.
  *
  */</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">set_tensor_shape</span><span class="hljs-params">(tensor_t tensor, <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> dims[], <span class="hljs-keyword">int</span> dim_number)</span></span>;
+</code></pre>
+<p>Example:</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">int</span> dims[] = {<span class="hljs-number">1</span>, model_input_channel, model_input_height, model_input_widht}; <span class="hljs-comment">// NCHW</span>
 set_tensor_shape(input_tensor, dims, <span class="hljs-number">4</span>);
 </code></pre>
 <h2 id="&#x9884;&#x8FD0;&#x884C;tengine&#x4E00;&#x5B9A;&#x8981;&#x6709;&#xFF01;&#xFF01;"><strong>&#x9884;&#x8FD0;&#x884C;Tengine(&#x4E00;&#x5B9A;&#x8981;&#x6709;&#xFF01;&#xFF01;)</strong></h2>
 <p>&#x6709;&#x5355;&#x7EBF;&#x7A0B;&#x548C;&#x591A;&#x7EBF;&#x7A0B;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF1A;</p>
 <ul>
-<li><p>&#x5355;&#x7EBF;&#x7A0B;</p>
-<pre><code class="lang-c++"><span class="hljs-comment">/*!
-* @brief Initialize resource for graph execution.
-*
-* @param [in] graph: The graph handle.
-*
-* @return 0: Success, -1: Fail.
-*
-*/</span>
-<span class="hljs-keyword">if</span> (prerun_graph(graph) != <span class="hljs-number">0</span>)
-{
-  <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Prerun graph failed.\n&quot;</span>;
-}
-</code></pre>
-</li>
-<li><p>&#x591A;&#x7EBF;&#x7A0B;</p>
-<pre><code class="lang-c++"><span class="hljs-comment">/*!
-* @brief Initialize resource for graph execution, and set cluster and threads count will used.
-*
-* @param [in] graph: The graph handle.
-* @param [in] cluster: The wanted cluster of all cpu clusters.
-* @param [in] threads: The threads count of graph will used to run.
-*
-* @return 0: Success, -1: Fail.
-*
-*/</span>
-<span class="hljs-keyword">if</span> (prerun_graph_multithread(graph, opt) != <span class="hljs-number">0</span>){
-  <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Prerun multithread graph failed.\n&quot;</span> ;
-}
-</code></pre>
-</li>
+<li>&#x5355;&#x7EBF;&#x7A0B;</li>
 </ul>
+<pre><code class="lang-c++"><span class="hljs-comment">/*!
+ * @brief Initialize resource for graph execution.
+ *
+ * @param [in] graph: The graph handle.
+ *
+ * @return 0: Success, -1: Fail.
+ *
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">prerun_graph</span><span class="hljs-params">(graph_t graph)</span></span>;
+</code></pre>
+<p>Example:</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">if</span> (prerun_graph(graph) != <span class="hljs-number">0</span>)
+{
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Prerun graph failed.\n&quot;</span>;
+}
+</code></pre>
+<ul>
+<li>&#x591A;&#x7EBF;&#x7A0B;</li>
+</ul>
+<pre><code class="lang-c++"><span class="hljs-comment">/*!
+ * @brief Initialize resource for graph execution, and set cluster and threads count will used.
+ *
+ * @param [in] graph: The graph handle.
+ * @param [in] cluster: The wanted cluster of all cpu clusters.
+ * @param [in] threads: The threads count of graph will used to run.
+ *
+ * @return 0: Success, -1: Fail.
+ *
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">prerun_graph_multithread</span><span class="hljs-params">(graph_t graph, <span class="hljs-keyword">struct</span> options opt)</span></span>;
+</code></pre>
+<p>Example:</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">if</span> (prerun_graph_multithread(graph, opt) != <span class="hljs-number">0</span>){
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Prerun multithread graph failed.\n&quot;</span> ;
+}
+</code></pre>
 
                                 
                                 </section>
@@ -606,7 +621,7 @@ set_tensor_shape(input_tensor, dims, <span class="hljs-number">4</span>);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"创建会话","level":"2.1.2.2","depth":3,"next":{"title":"输入数据","level":"2.1.2.3","depth":3,"path":"ReasoningEngine/inputdata.md","ref":"ReasoningEngine/inputdata.md","articles":[]},"previous":{"title":"初始化","level":"2.1.2.1","depth":3,"path":"ReasoningEngine/inittengine.md","ref":"ReasoningEngine/inittengine.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","-sharing","-fontsettings","-livereload","back-to-top-button","code","expandable-chapters-small","-theme-fexa","github","splitter"],"styles":{"website":"styles/customize.css"},"pluginsConfig":{"expandable-chapters-small":{},"code":{"copyButtons":true},"github":{"url":"https://github.com/OAID/Tengine"},"search-pro":{},"back-to-top-button":{},"splitter":{},"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"openailab","pdf":{"pageNumbers":true,"fontSize":10,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":42,"left":42,"top":36,"bottom":36}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tengine-Lite","language":"zh-hans","gitbook":"*","description":"Tengine-Lite使用文档","extension":null},"file":{"path":"ReasoningEngine/createsession.md","mtime":"2020-11-04T08:43:49.057Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-06T06:43:42.475Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"创建会话","level":"2.1.2.2","depth":3,"next":{"title":"输入数据","level":"2.1.2.3","depth":3,"path":"ReasoningEngine/inputdata.md","ref":"ReasoningEngine/inputdata.md","articles":[]},"previous":{"title":"初始化","level":"2.1.2.1","depth":3,"path":"ReasoningEngine/inittengine.md","ref":"ReasoningEngine/inittengine.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","-sharing","-fontsettings","-livereload","back-to-top-button","code","expandable-chapters-small","-theme-fexa","github","splitter"],"styles":{"website":"styles/customize.css"},"pluginsConfig":{"expandable-chapters-small":{},"code":{"copyButtons":true},"github":{"url":"https://github.com/OAID/Tengine"},"search-pro":{},"back-to-top-button":{},"splitter":{},"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"openailab","pdf":{"pageNumbers":true,"fontSize":10,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":42,"left":42,"top":36,"bottom":36}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tengine-Lite","language":"zh-hans","gitbook":"*","description":"Tengine-Lite使用文档","extension":null},"file":{"path":"ReasoningEngine/createsession.md","mtime":"2020-11-06T07:04:54.665Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-06T07:15:36.560Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

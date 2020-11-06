@@ -7,6 +7,10 @@
  *
  * @return 0: Success, -1: Fail.
  */
+int init_tengine(void);
+```
+Example:
+```c++
 init_tengine();
 ```
 
@@ -24,6 +28,10 @@ init_tengine();
  * @param [in] version: A c string returned by get_tengine_version()
  * @return 1: support, 0: not support.
  */
+int request_tengine_version(const char* version);
+```
+Example:
+```c++
 if (request_tengine_version("1.0") < 0)
 {
     std::cout << "Version no Correct " << std::endl;

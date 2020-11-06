@@ -480,7 +480,7 @@
     }
 </code></pre>
 <h2 id="&#x8BBE;&#x7F6E;&#x8F93;&#x5165;"><strong>&#x8BBE;&#x7F6E;&#x8F93;&#x5165;</strong></h2>
-<pre><code class="lang-c++">/*!
+<pre><code class="lang-c++"><span class="hljs-comment">/*!
  * @brief Set the buffer of the tensor.
  *    A tensor may deny to change its internal buffer setting.
  *
@@ -490,8 +490,8 @@
  *
  * @return 0: Success; -1: Fail.
  * @note  The buffer is still managed by caller.
- */
-set_tensor_buffer(input_tensor, send_im, image_width * image_height * image_channel * sizeof(float));
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">set_tensor_buffer</span><span class="hljs-params">(tensor_t tensor, <span class="hljs-keyword">void</span>* buffer, <span class="hljs-keyword">int</span> buffer_size)</span></span>;
 </code></pre>
 <h2 id="&#x5B8C;&#x6574;&#x4EE3;&#x7801;"><strong>&#x5B8C;&#x6574;&#x4EE3;&#x7801;</strong></h2>
 <pre><code class="lang-c++">// &#x8F93;&#x5165;&#x6570;&#x636E;
@@ -555,7 +555,7 @@ set_tensor_buffer(input_tensor, send_im, image_width * image_height * image_chan
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"输入数据","level":"2.1.2.3","depth":3,"next":{"title":"推理会话","level":"2.1.2.4","depth":3,"path":"ReasoningEngine/runsession.md","ref":"ReasoningEngine/runsession.md","articles":[]},"previous":{"title":"创建会话","level":"2.1.2.2","depth":3,"path":"ReasoningEngine/createsession.md","ref":"ReasoningEngine/createsession.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","-sharing","-fontsettings","-livereload","back-to-top-button","code","expandable-chapters-small","-theme-fexa","github","splitter"],"styles":{"website":"styles/customize.css"},"pluginsConfig":{"expandable-chapters-small":{},"code":{"copyButtons":true},"github":{"url":"https://github.com/OAID/Tengine"},"search-pro":{},"back-to-top-button":{},"splitter":{},"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"openailab","pdf":{"pageNumbers":true,"fontSize":10,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":42,"left":42,"top":36,"bottom":36}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tengine-Lite","language":"zh-hans","gitbook":"*","description":"Tengine-Lite使用文档","extension":null},"file":{"path":"ReasoningEngine/inputdata.md","mtime":"2020-11-04T08:43:49.059Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-06T06:43:42.475Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"输入数据","level":"2.1.2.3","depth":3,"next":{"title":"推理会话","level":"2.1.2.4","depth":3,"path":"ReasoningEngine/runsession.md","ref":"ReasoningEngine/runsession.md","articles":[]},"previous":{"title":"创建会话","level":"2.1.2.2","depth":3,"path":"ReasoningEngine/createsession.md","ref":"ReasoningEngine/createsession.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","-sharing","-fontsettings","-livereload","back-to-top-button","code","expandable-chapters-small","-theme-fexa","github","splitter"],"styles":{"website":"styles/customize.css"},"pluginsConfig":{"expandable-chapters-small":{},"code":{"copyButtons":true},"github":{"url":"https://github.com/OAID/Tengine"},"search-pro":{},"back-to-top-button":{},"splitter":{},"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"openailab","pdf":{"pageNumbers":true,"fontSize":10,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":42,"left":42,"top":36,"bottom":36}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tengine-Lite","language":"zh-hans","gitbook":"*","description":"Tengine-Lite使用文档","extension":null},"file":{"path":"ReasoningEngine/inputdata.md","mtime":"2020-11-06T07:07:33.539Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-06T07:15:36.560Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

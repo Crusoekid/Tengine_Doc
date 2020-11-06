@@ -458,26 +458,35 @@
  *
  * @return None.
  */</span>
-release_graph_tensor(input_tensor);
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">release_graph_tensor</span><span class="hljs-params">(tensor_t tensor)</span></span>;
+
 <span class="hljs-comment">/*!
  * @brief Release the resource for graph execution.
  * @param [in] graph: graph handle.
  *
  * @return 0: Success, -1: Fail.
  */</span>
-postrun_graph(graph);
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">postrun_graph</span><span class="hljs-params">(graph_t graph)</span></span>;
+
 <span class="hljs-comment">/*!
  * @brief Destory the runtime graph and release allocated resource.
  *
  * @param [in] graph: The graph handle.
  * @return 0: Success, -1: Fail.
  */</span>
-destroy_graph(graph);
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">destroy_graph</span><span class="hljs-params">(graph_t graph)</span></span>;
+
 <span class="hljs-comment">/*!
  * @brief Release the tengine, only can be called once.
  *
  * @return none.
  */</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">release_tengine</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>;
+</code></pre>
+<p>Example:</p>
+<pre><code class="lang-c++">release_graph_tensor(input_tensor);
+postrun_graph(graph);
+destroy_graph(graph);
 release_tengine();
 </code></pre>
 
@@ -523,7 +532,7 @@ release_tengine();
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"释放内存","level":"2.1.2.6","depth":3,"next":{"title":"转换工具","level":"3.1","depth":1,"path":"Transformation/transfertool.md","ref":"Transformation/transfertool.md","articles":[{"title":"编译","level":"3.1.1","depth":2,"path":"Transformation/compile.md","ref":"Transformation/compile.md","articles":[{"title":"转换工具","level":"3.1.1.1","depth":3,"path":"Transformation/linuxtransfer.md","ref":"Transformation/linuxtransfer.md","articles":[]}]},{"title":"模型转换","level":"3.1.2","depth":2,"path":"Transformation/transfer.md","ref":"Transformation/transfer.md","articles":[]}]},"previous":{"title":"得到输出","level":"2.1.2.5","depth":3,"path":"ReasoningEngine/outputdata.md","ref":"ReasoningEngine/outputdata.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","-sharing","-fontsettings","-livereload","back-to-top-button","code","expandable-chapters-small","-theme-fexa","github","splitter"],"styles":{"website":"styles/customize.css"},"pluginsConfig":{"expandable-chapters-small":{},"code":{"copyButtons":true},"github":{"url":"https://github.com/OAID/Tengine"},"search-pro":{},"back-to-top-button":{},"splitter":{},"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"openailab","pdf":{"pageNumbers":true,"fontSize":10,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":42,"left":42,"top":36,"bottom":36}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tengine-Lite","language":"zh-hans","gitbook":"*","description":"Tengine-Lite使用文档","extension":null},"file":{"path":"ReasoningEngine/release.md","mtime":"2020-11-04T08:43:49.064Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-06T06:43:42.475Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"释放内存","level":"2.1.2.6","depth":3,"next":{"title":"转换工具","level":"3.1","depth":1,"path":"Transformation/transfertool.md","ref":"Transformation/transfertool.md","articles":[{"title":"编译","level":"3.1.1","depth":2,"path":"Transformation/compile.md","ref":"Transformation/compile.md","articles":[{"title":"转换工具","level":"3.1.1.1","depth":3,"path":"Transformation/linuxtransfer.md","ref":"Transformation/linuxtransfer.md","articles":[]}]},{"title":"模型转换","level":"3.1.2","depth":2,"path":"Transformation/transfer.md","ref":"Transformation/transfer.md","articles":[]}]},"previous":{"title":"得到输出","level":"2.1.2.5","depth":3,"path":"ReasoningEngine/outputdata.md","ref":"ReasoningEngine/outputdata.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","-sharing","-fontsettings","-livereload","back-to-top-button","code","expandable-chapters-small","-theme-fexa","github","splitter"],"styles":{"website":"styles/customize.css"},"pluginsConfig":{"expandable-chapters-small":{},"code":{"copyButtons":true},"github":{"url":"https://github.com/OAID/Tengine"},"search-pro":{},"back-to-top-button":{},"splitter":{},"highlight":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"openailab","pdf":{"pageNumbers":true,"fontSize":10,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":42,"left":42,"top":36,"bottom":36}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Tengine-Lite","language":"zh-hans","gitbook":"*","description":"Tengine-Lite使用文档","extension":null},"file":{"path":"ReasoningEngine/release.md","mtime":"2020-11-06T07:12:49.868Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-06T07:15:36.560Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
