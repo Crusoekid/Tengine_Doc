@@ -3,10 +3,12 @@
 * [介绍](README.md)
     * [关于](Introduction/about.md)
     * [反馈](Introduction/feedback.md)
+    * [示例](Introduction/example.md)
 
 
 * [推理引擎](ReasoningEngine/reasoningengine.md)
     * [编译](ReasoningEngine/compile.md)
+        * [编译CMakeLists参数](ReasoningEngine/compilecmakelists.md)
         * [编译Android推理库](ReasoningEngine/androidreasoning.md)
         * [编译Linux推理库](ReasoningEngine/linuxreasoning.md)
     * [推理](ReasoningEngine/reasoning.md)
